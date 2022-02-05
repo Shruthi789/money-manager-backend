@@ -19,6 +19,9 @@ async function createConnection(){
 }
 const client= await createConnection();
 
+app.get('/',(request,response)=>{
+    response.send('Welcome to the Money Manager')
+})
 app.use('/income',incomeRouter);
 app.use('/expenditure',expenseRouter);
 

@@ -48,6 +48,7 @@ router.route('/:option')
                        default: aggregateData=[];
                       }
                   const result=await getExpenses(aggregateData);
+                  console.log(result);
                   response.send(result);
                   });
 

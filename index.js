@@ -7,10 +7,10 @@ import { expenseRouter } from "./routes/expenditure.js";
 
 dotenv.config();
 const app=express();
+app.use(cors());
+app.use(express.json());
 const PORT=process.env.PORT;
 
-app.use(express.json());
-app.use(cors());
 async function createConnection(){
     const client=new MongoClient(process.env.Mongo_URL);
     await client.connect();

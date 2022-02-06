@@ -35,16 +35,16 @@ router.route('/division')
 router.route('/:option')
                   .get(async(request,response)=>{
                       const {option}=request.params;
-                      let filterData=request.query;
-                      if(startDate || endDate){
-                         let {category,division}=filterData;
-                         filterData={category,division,dateandtime:{$gte:startDate,$lt:endDate}}
-                      }
+                     //  let filterData=request.query;
+                     //  if(startDate){
+                     //     let {category,division}=filterData;
+                     //     filterData={category,division,dateandtime:{$gte:startDate,$lt:endDate}}
+                     //  }
                       let aggregateData=[];
                       switch(option){
-                       case 'Monthly': aggregateData=[{$match:filterData }, {$group:{ _id: { $month: "$dateandtime"}, totalIncome: { $sum: "$amount" }, }} ]; break;
-                       case 'Yearly': aggregateData=[{$match:filterData }, {$group:{ _id: { $year: "$dateandtime"}, totalIncome: { $sum: "$amount" }, }} ]; break;
-                       case 'Weekly': aggregateData=[{ $match:filterData}, {$group:{ _id: { $week: "$dateandtime"}, totalIncome: { $sum: "$amount" }, }} ]; break;
+                       case 'Monthly': aggregateData=[ {$group:{ _id: { $month: "$dateandtime"}, totalIncome: { $sum: "$amount" }, }} ]; break;
+                       case 'Yearly': aggregateData=[ {$group:{ _id: { $year: "$dateandtime"}, totalIncome: { $sum: "$amount" }, }} ]; break;
+                       case 'Weekly': aggregateData=[{$group:{ _id: { $week: "$dateandtime"}, totalIncome: { $sum: "$amount" }, }} ]; break;
                        default: aggregateData=[];
                       }
                       const result=await getIncomeData(aggregateData);

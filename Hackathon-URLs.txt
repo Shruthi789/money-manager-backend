@@ -1,0 +1,11 @@
+Hackathon project details (Money Manager):
+
+FrontEnd:
+GitHub:https://github.com/Shruthi789/money-manager-frontend.git
+Hosted:https://money-manager-shruthi.netlify.app/
+Last Committed Hash ID- 7f438fa6fc485580a08d3f4268d6b0a1c6f09984
+
+BackEnd:
+GitHub:https://github.com/Shruthi789/money-manager-backend
+Hosted:https://moneymanager-hackathon.herokuapp.com/
+Last Committed Hash ID -  744eabf5d3248d0f393029ace3a77c7334fdd626

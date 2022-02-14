@@ -18,8 +18,11 @@ function getCategories() {
 function editIncome(id,incomeData){
     return client.db('MoneyMgrDB').collection('Income').updateOne({_id:ObjectId(id)},{$set:incomeData});
 }
+function deleteIncome(id){
+    return client.db('MoneyMgrDB').collection('Income').deleteOne({_id:ObjectId(id)});
+}
 function getDivisions() {
     return client.db('MoneyMgrDB').collection('Income').distinct('division');
   }
 
-export {getIncome,addIncome,getCategories,editIncome,getDivisions,getIncomeData};
+export {getIncome,addIncome,getCategories,editIncome,getDivisions,getIncomeData,deleteIncome};

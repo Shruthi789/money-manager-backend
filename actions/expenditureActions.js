@@ -11,6 +11,9 @@ function getExpenses(aggData){
 function addExpense(Expense){
     return client.db('MoneyMgrDB').collection('Expense').insertOne(Expense);
 }
+function deleteExpense(id){
+    return client.db('MoneyMgrDB').collection('Expense').deleteOne({_id:ObjectId(id)});
+}
 
 function getCategories() {
     return client.db('MoneyMgrDB').collection('Expense').distinct('category');
@@ -22,4 +25,4 @@ function getDivisions() {
     return client.db('MoneyMgrDB').collection('Expense').distinct('division');
   }
 
-export {getExpense,addExpense,getCategories,editExpense,getDivisions,getExpenses};
+export {getExpense,deleteExpense,addExpense,getCategories,editExpense,getDivisions,getExpenses};

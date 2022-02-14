@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { incomeRouter } from "./routes/income.js";
 import { expenseRouter } from "./routes/expenditure.js";
+import { usersRouter } from "./routes/users.js";
 
 dotenv.config();
 const app=express();
@@ -22,6 +23,7 @@ const client= await createConnection();
 app.get('/',(request,response)=>{
     response.send('Welcome to the Money Manager')
 })
+app.use('/users',usersRouter);
 app.use('/income',incomeRouter);
 app.use('/expenditure',expenseRouter);
 
